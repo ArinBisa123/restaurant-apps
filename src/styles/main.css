@@ -1,0 +1,301 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #edede9;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+.skip_link {
+  position: absolute;
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+  top: -50px;
+  left: 0;
+  background-color: #f5ebe0;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+/*Menampilkan anchor skip to content */
+.skip_link:focus {
+  top: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #d6ccc2;
+  box-shadow: 5px 0 10px #d5bdaf;
+  font-size: 20px;
+}
+.navbar .nav__list {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 44px;
+}
+.nav__list .nav__item {
+  list-style: none;
+  margin-right: 2rem;
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+}
+.nav__list .nav__item a {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+.nav__item.menu a {
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+}
+.nav__list .nav__item:first-child {
+  margin-right: auto;
+  margin-left: 2rem;
+  font-family: "Nerko One", cursive;
+}
+.nav__list .nav__item a:hover {
+  background-color: #edede9;
+}
+.nav__list .nav__item.drawer {
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+  margin-right: 2rem;
+  margin-left: auto;
+  min-width: 44px;
+  min-height: 44px;
+  display: none;
+}
+.nav__list .nav__item.drawer a {
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* hero */
+.hero {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  background-image: url("../public/images/heros/hero-image_1.jpg");
+  background-size: cover;
+}
+.hero__inner {
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  margin: 0 auto;
+  width: 1000px;
+  color: #fefae0;
+}
+.hero__title {
+  font-weight: 300px;
+  font-size: 36px;
+}
+.hero__tagline {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 300px;
+}
+/* Main */
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+.headline {
+  margin: 20px auto;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+}
+.headline .headline__title {
+  font-size: 36px;
+}
+.headline .headline__title:hover {
+  text-decoration-line: underline;
+  text-decoration-color: #d5bdaf;
+  text-decoration-thickness: 3px;
+}
+.restaurant {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+.restaurant-item {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.restaurant-item__header{
+  position: relative;
+}
+.restaurant-item .restaurant-item__header .restaurant-item__poster{
+  width: 100%;
+}
+.restaurant-item .restaurant-item__header .restaurant-item__rating{
+  position: absolute;
+  padding: 8px;
+  bottom: 20px;
+  left: 0;
+  display: inline-block;
+  background-color: black;
+  color: white;
+} 
+.restaurant-item .restaurant-item__header .restaurant-item__rating .restaurant-item__rating-score{
+  margin-left: 10px;
+}
+.restaurant__content {
+  padding: 16px 32px 32px 32px;
+}
+.restaurant__name {
+  font-size: 25px;
+}
+.restaurant__description {
+  text-align: justify;
+}
+.restaurant figcaption {
+  position: absolute;
+  top: 2%;
+  left: 5%;
+  background-color: #d6ccc2;
+}
+.restaurant figcaption:hover {
+  box-shadow: 4px 4px 2px #edede9;
+  font-weight: 200;
+  font-size: 25px;
+}
+
+/* footer */
+footer {
+  background-color: #d6ccc2;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Nerko One", cursive;
+  margin-top: 20px;
+}
+
+/*
+Responsive
+*/
+
+/* mobile*/
+@media screen and (max-width: 600px) {
+  .nav__list .nav__item.drawer {
+    display: block;
+  }
+  .nav__list .nav__item h1 {
+    display: block;
+    text-decoration: none;
+  }
+  .nav__list .nav__item.menu {
+    display: none;
+  }
+  .nav__list .nav__item.menu.open {
+    display: block;
+    left: 0;
+  }
+  .nav__list .nav__item.menu.open a {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nav__list .nav__item a {
+    display: block;
+    padding: 10px;
+    margin-left: 30px;
+  }
+  .nav__list .nav__item a:hover {
+    background-color: #edede9;
+    color: black;
+  }
+  .nav__list .nav__item.menu {
+    z-index: 100;
+    position: absolute;
+    top: 65px;
+    flex-direction: column;
+    background-color: #d6ccc2;
+    width: 100%;
+    height: 170px;
+  }
+  .nav__list .nav__item.drawer {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nav__item.drawer a {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nav__item.drawer:hover {
+    background-color: #edede9;
+  }
+  .hero {
+    max-width: 600px;
+  }
+  .hero .hero__inner {
+    max-width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left:0%;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 601px) {
+  .nav__list .nav__item.drawer {
+    display: none;
+  }
+  .restaurant {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+  }
+  .hero {
+    min-width: 601px;
+  }
+  .hero .hero__inner {
+    min-width: 100%;
+    text-align: left;
+    position: absolute;
+    top: 40%;
+    left:0%;
+    margin: 0 auto;
+  }
+  .hero .hero__inner {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .hero{
+    max-width: 1500px;
+  }
+  .hero .hero__inner {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 800px) {
+  .restaurant {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
