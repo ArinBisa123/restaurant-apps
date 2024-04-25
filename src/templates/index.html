@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Poppins&display=swap" rel="stylesheet" />
+    <title>taberu食</title>
+  </head>
+  <body>
+    <a href="#maincontent" class="skip_link">Skip to Content</a>
+    <nav class="navbar" id="navbar">
+      <ul class="nav__list">
+        <li class="nav__item" ><h1 tabindex="0">taberu食</h1></li>
+        <li class="nav__item menu" id="nav__menu">
+          <a class="menu" href="/" aria-label="home">Home</a>
+          <a class="menu" href="#" aria-label="favorite">Favorite</a>
+          <a class="menu" target="_blank" href="https://github.com/ArinBisa123" aria-label="about us" >About Us</a>
+        </li>
+        <li class="nav__item drawer" ><a id="nav__drawer" href="#" aria-label="navigation-menu">☰</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <div class="hero__inner">
+        <h2 class="hero__title" tabindex="0">Welcome To taberu食</h2>
+        <h3 class="hero__tagline" tabindex="0">Get To Know First About Restaurant You Want To Visit</h3>
+      </div>
+    </div>
+    <main>
+      <div class="headline">
+        <h4 class="headline__title" tabindex="0">Explore Restaurant<span> &#10032</span></h4>
+      </div>
+      <restaurant-list></restaurant-list>
+      <!-- <div class="restaurant" id="maincontent" tabindex="0" aria-label="This is Content ">
+        <article class="restaurant__list" tabindex="0" aria-label="Bring Your Phone Cafe" >
+          <div class="restaurant__thumbnail">
+            <img src="https://restaurant-api.dicoding.dev/images/medium/41" alt="Gambar Bring Your Phone Cafe" class="restaurant__image" tabindex="0">
+            <figcaption tabindex="0">Medan</figcaption>
+          </div>
+          <div class="restaurant__content">
+            <p class="rating" tabindex="0">&#11088 Rating: 4.6 </p>
+            <h5 class="restaurant__name" tabindex="0">Bring Your Phone Cafe</h5>
+            <p class="restaurant__description" tabindex="0">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+          </div>
+        </article>
+        <article class="restaurant__list" tabindex="0" aria-label="Run The Gun Restaurant">
+          <div class="restaurant__thumbnail">
+            <img src="https://restaurant-api.dicoding.dev/images/medium/07" alt="Gambar restauran Run The Gun" class="restaurant__image" tabindex="0">
+            <figcaption tabindex="0">Bali</figcaption>
+          </div>
+          <div class="restaurant__content">
+            <p class="rating" tabindex="0">&#11088 Rating: 4.6 </p>
+            <h5 class="restaurant__name" tabindex="0">Run The Gun</h5>
+            <p class="restaurant__description" tabindex="0">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+          </div>
+        </article>
+        <article class="restaurant__list" tabindex="0" aria-label="Pangsit Express Restaurant">
+          <div class="restaurant__thumbnail">
+            <img src="https://restaurant-api.dicoding.dev/images/medium/29" alt="Gambar restauran Pangsit Ekspress" class="restaurant__image"tabindex="0">
+            <figcaption tabindex="0">Ternate</figcaption>
+          </div>
+          <div class="restaurant__content">
+            <p class="rating" tabindex="0">&#11088 Rating: 4.8</p>
+            <h5 class="restaurant__name" tabindex="0">Pangsit Ekspress</h5>
+            <p class="restaurant__description" tabindex="0">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+          </div>
+        </article>
+        <article class="restaurant__list" tabindex="0" aria-label="Ducky Duck Restaurant">
+          <div class="restaurant__thumbnail">
+            <img src="https://restaurant-api.dicoding.dev/images/medium/38" alt="Gambar restauran Ducky Duck" class="restaurant__image" tabindex="0">
+            <figcaption tabindex="0">Malang</figcaption>
+          </div>
+          <div class="restaurant__content">
+            <p class="rating" tabindex="0">&#11088 Rating: 4.7 </p>
+            <h5 class="restaurant__name" tabindex="0">Ducky Duck</h5>
+            <p class="restaurant__description" tabindex="0">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+          </div>
+        </article>
+      </div> -->
+    </main>
+    <footer tabindex="0">
+      <p>Created in gloomy days &#9928 &#169 Arrini - Taberu 2022</p>
+    </footer>
+  </body>
+</html>
