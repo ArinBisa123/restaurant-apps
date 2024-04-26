@@ -40,7 +40,7 @@ class RestaurantList extends HTMLElement {
       .restaurant__description {
         text-align: justify;
       }
-      @media screen and (min-width:501px){
+      @media screen and (max-width:599px){
         .restaurant {
           display: grid;
           grid-template-columns:1fr;
@@ -52,7 +52,7 @@ class RestaurantList extends HTMLElement {
           width:100%;
         }
       }
-      @media screen and (min-width:601px){
+      @media screen and (min-width:600px){
         .restaurant {
           display: grid;
           grid-template-columns:repeat(2,1fr);
@@ -64,16 +64,16 @@ class RestaurantList extends HTMLElement {
           width:300px;
         }
       }
-      @media screen and (min-width: 800px) {
+      @media screen and (min-width: 900px) {
         .restaurant {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 10px;
           width:100%;
           margin:20px 20px;
         }
         .restaurant-item{
-          width:300px;
+          width:400px;
         }
       }
       
