@@ -15,25 +15,24 @@ class RestaurantList extends HTMLElement {
       <style>
       .restaurant {
         display: grid;
-        grid-row-gap: 16px;
-        margin: 20px auto auto;
+        grid-template-columns: repeat(3,1fr);
+        gap: 10px;
         text-align: left;
+        width:100%;
+        margin: 20px 20px;
       }
-      .restaurant__list {
+      .restaurant-item{
+        width:400px;
         box-shadow: 4px 4px 0 #e3d5ca;
-        max-height: 500px;
         background-color: #d5bdaf;
-        overflow: auto;
         border-radius: 5px;
-        margin: auto;
+        margin-top:15px
+      }
+      .restaurant__list{
+        padding:16px;
       }
       .restaurant__image {
-        width: 100%;
-        height: 200px;
-      }
-      .restaurant__thumbnail {
-        position: relative;
-        margin: auto;
+        width:100%;
       }
       .restaurant__name {
         font-size: 25px;
@@ -41,20 +40,43 @@ class RestaurantList extends HTMLElement {
       .restaurant__description {
         text-align: justify;
       }
-      .restaurant figcaption {
-        position: absolute;
-        top: 2%;
-        left: 5%;
-        background-color: #d6ccc2;
+      @media screen and (min-width:501px){
+        .restaurant {
+          display: grid;
+          grid-template-columns:1fr;
+          gap: 10px;
+          margin: 20px 20px;
+          width:100%;
+        }
+        .restaurant-item{
+          width:100%;
+        }
       }
-      .restaurant figcaption:hover {
-        box-shadow: 4px 4px 2px #edede9;
-        font-weight: 200;
-        font-size: 25px;
+      @media screen and (min-width:601px){
+        .restaurant {
+          display: grid;
+          grid-template-columns:repeat(2,1fr);
+          gap: 10px;
+          margin: 20px 20px;
+          width:100%;
+        }
+        .restaurant-item{
+          width:300px;
+        }
       }
-      .restaurant__content {
-        padding: 16px 32px 32px 32px;
+      @media screen and (min-width: 800px) {
+        .restaurant {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          width:100%;
+          margin:20px 20px;
+        }
+        .restaurant-item{
+          width:300px;
+        }
       }
+      
       </style>
       <div class="restaurant" id="maincontent" tabindex="0" aria-label="This is Content ">
       
@@ -68,8 +90,8 @@ class RestaurantList extends HTMLElement {
       restaurantItem.innerHTML = `
       <article class="restaurant__list" tabindex="0 >
         <div class="restaurant__thumbnail">
-          <img src="${data.pictureId}">
-          <figcaption tabindex="0">${data.city}</figcaption>
+          <img class="restaurant__image" src="${data.pictureId}">
+          <p tabindex="0">Lokasi : ${data.city}</p>
         </div>
         <div class="restaurant__content">
           <p class="rating" tabindex="0">&#11088 Rating: ${data.rating} </p>

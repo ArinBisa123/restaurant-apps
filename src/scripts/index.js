@@ -20,7 +20,7 @@ navMenu.addEventListener("click", () => {
 });
 
 const getAllData= ()=>{
-  fetch('../../src/DATA.json')
+  fetch('../DATA.json')
     .then(response=>{
       if(!response.ok){
         throw new Error(`HTTP error! Status: ${response.status}`)
@@ -29,10 +29,11 @@ const getAllData= ()=>{
     })
     .then (responseJson=>{
       console.log(responseJson)
-      restaurantListElement.restaurant= responseJson
+      const restaurants=responseJson.restaurants
+      restaurantListElement.restaurant= restaurants
     })
     .catch(error=>{
       console.log(error)
     })
 }
-console.log(getAllData())
+getAllData()
