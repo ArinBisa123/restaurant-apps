@@ -1,12 +1,12 @@
 class RestaurantList extends HTMLElement {
   constructor() {
     super();
-
     this._shadowRoot = this.attachShadow({ mode: "open" });
   }
 
   set restaurant(restaurants){
     this._restaurant = restaurants;
+    console.log(this._restaurant)
     this.render();
   }
 
@@ -105,3 +105,5 @@ class RestaurantList extends HTMLElement {
   }
 }
 customElements.define("restaurant-list", RestaurantList);
+
+export default RestaurantList
