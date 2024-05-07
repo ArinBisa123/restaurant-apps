@@ -1,19 +1,22 @@
+import RestaurantSource from "../../data/restaurant-source";
+import { createRestaurantItemTemplate } from "../templates/template";
+
 class RestaurantList extends HTMLElement {
   constructor() {
     super();
-    this._shadowRoot = this.attachShadow({ mode: "open" });
+    this._DOMRoot = null
   }
-
-  set restaurant(restaurants){
-    this._restaurant = restaurants;
-    console.log(this._restaurant)
-    this.render();
-  }
+  // set restaurant(restaurants){
+  //   this._restaurant = restaurants;
+  //   console.log(this._restaurant)
+  //   this.render();
+  // }
   connectedCallback(){
     this.render()
+    this.afterRender()
   }
   render() {
-    this._shadowRoot.innerHTML = `
+    this._DOMRoot.innerHTML = `
       <style>
       .restaurant {
         display: grid;
@@ -84,26 +87,15 @@ class RestaurantList extends HTMLElement {
       
       </div>
     `;
-
-    const restaurantList = this._shadowRoot.querySelector('.restaurant');
-    this._restaurant.forEach((data) => {
-      const restaurantItem = document.createElement('div');
-      restaurantItem.classList.add('restaurant-item');
-      restaurantItem.innerHTML = `
-      <article class="restaurant__list" tabindex="0 >
-        <div class="restaurant__thumbnail">
-          <img class="restaurant__image" src="${data.pictureId}">
-          <p tabindex="0">Lokasi : ${data.city}</p>
-        </div>
-        <div class="restaurant__content">
-          <p class="rating" tabindex="0">&#11088 Rating: ${data.rating} </p>
-          <h5 class="restaurant__name" tabindex="0">${data.name}</h5>
-          <p class="restaurant__description" tabindex="0">${data.description}</p>
-        </div>
-      </article>
-      `;
-      restaurantList.appendChild(restaurantItem);
-    });
+  }
+  afterRender(){
+    const restaurants = RestaurantSource.getAllRestaurants()
+    console.log(restaurants)
+    const restaurantListContainer = this._DOMRoot.querySelector('.restaurant');
+    restaurants.forEach((data) => {
+      restaurantListContainer.innerHTML += createRestaurantItemTemplate(data)
+      }
+    )
   }
 }
 customElements.define("restaurant-list", RestaurantList);

@@ -1,6 +1,7 @@
 import DrawerInitiator from '../utils/drawer-initiator';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
+import RestauranListHelper from '../utils/restaurantList-helper';
 
 //initiate app shell component
 
@@ -25,7 +26,6 @@ class App {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
     this._content.innerHTML = await page.render();
-    await page.afterRender();
   }
 }
 

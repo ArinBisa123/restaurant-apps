@@ -17,8 +17,6 @@ window.addEventListener('load', async () => {
   app.renderPage();
   // await swRegister();
 })
-const restaurantListElement = document.querySelector('restaurant-list')
-console.log(restaurantListElement)
 // drawer.addEventListener("click", (event) => {
 //   if (navMenu.classList.contains("open")) {
 //     navMenu.classList.remove("open");

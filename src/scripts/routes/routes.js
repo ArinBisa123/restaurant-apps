@@ -1,9 +1,9 @@
-import RestaurantListHelper from '../views/pages/restaurant-list';
+import RestauranListHelper from '../utils/restaurantList-helper';
 import Detail from '../views/pages/detail-restaurant';
 // import Favorite from '../views/pages/favorite-restaurant';
 
 const routes = {
-  '/': RestaurantListHelper, // default page
+  '/': RestauranListHelper, // default page
   '/detail/:id': Detail,
   // '/': Favorite,
 };
