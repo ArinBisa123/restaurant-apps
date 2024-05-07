@@ -13,7 +13,7 @@ class RestaurantSource {
   }
 }
 
-const restaurants = RestaurantSource.getAllRestaurants()
-console.log(restaurants)
+// const restaurants = RestaurantSource.getAllRestaurants()
+// console.log(restaurants)
 
 export default RestaurantSource;

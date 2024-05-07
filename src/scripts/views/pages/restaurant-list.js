@@ -9,7 +9,9 @@ class RestaurantList extends HTMLElement {
     console.log(this._restaurant)
     this.render();
   }
-
+  connectedCallback(){
+    this.render()
+  }
   render() {
     this._shadowRoot.innerHTML = `
       <style>
