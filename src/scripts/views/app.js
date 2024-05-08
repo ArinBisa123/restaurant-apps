@@ -26,6 +26,7 @@ class App {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
     this._content.innerHTML = await page.render();
+    page.afterRender()
   }
 }
 

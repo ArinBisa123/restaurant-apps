@@ -5,6 +5,7 @@ class RestaurantSource {
     const response = await fetch(API_ENDPOINT.LIST);
     const responseJson = await response.json();
     const restaurantList = responseJson.restaurants
+    // console.log(restaurantList)
     return restaurantList
   }
 
@@ -13,5 +14,5 @@ class RestaurantSource {
     return response.json();
   }
 }
-
+console.log(RestaurantSource.getAllRestaurants())
 export default RestaurantSource;

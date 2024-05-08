@@ -4,19 +4,18 @@ import { createRestaurantItemTemplate } from "../templates/template";
 class RestaurantList extends HTMLElement {
   constructor() {
     super();
-    this._DOMRoot = null
   }
   // set restaurant(restaurants){
   //   this._restaurant = restaurants;
   //   console.log(this._restaurant)
   //   this.render();
   // }
-  connectedCallback(){
-    this.render()
-    this.afterRender()
-  }
+  // connectedCallback(){
+  //   this.render()
+  //   this.afterRender()
+  // }
   render() {
-    this._DOMRoot.innerHTML = `
+    this.innerHTML = `
       <style>
       .restaurant {
         display: grid;
@@ -84,20 +83,23 @@ class RestaurantList extends HTMLElement {
       
       </style>
       <div class="restaurant" id="maincontent" tabindex="0" aria-label="This is Content ">
-      
+
       </div>
     `;
   }
-  afterRender(){
-    const restaurants = RestaurantSource.getAllRestaurants()
-    console.log(restaurants)
-    const restaurantListContainer = this._DOMRoot.querySelector('.restaurant');
-    restaurants.forEach((data) => {
-      restaurantListContainer.innerHTML += createRestaurantItemTemplate(data)
-      }
-    )
-  }
+  // afterRender() {
+  //   const restaurants = RestaurantSource.getAllRestaurants();
+  //   console.log(restaurants);
+  //   const restaurantListContainer = document.querySelector(".restaurant");
+  //   restaurants.forEach((data) => {
+  //     const restaurantItem = document.createElement("div");
+  //     restaurantItem.classList.add("restaurant-item");
+  //     restaurantItem.innerHTML += createRestaurantItemTemplate(data);
+  //     restaurantListContainer.appendChild(restaurantItem);
+  //   });
+  // }
 }
 customElements.define("restaurant-list", RestaurantList);
 
-export default RestaurantList
+// console.log(RestaurantList.afterRender())
+export default RestaurantList;
