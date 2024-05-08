@@ -4,9 +4,8 @@ class RestaurantSource {
   static async getAllRestaurants() {
     const response = await fetch(API_ENDPOINT.LIST);
     const responseJson = await response.json();
-    const restaurantList = responseJson.restaurants
+    return responseJson.restaurants
     // console.log(restaurantList)
-    return restaurantList
   }
 
   static async detailRestaurant(id) {
