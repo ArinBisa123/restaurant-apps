@@ -1,9 +1,10 @@
-import RestauranListHelper from '../utils/restaurantList-helper';
+import RestaurantListHelper from '../utils/restaurantList-helper';
 import Detail from '../views/pages/detail-restaurant';
 import Favorite from '../views/pages/favorite-restaurant';
 
 const routes = {
-  '/': RestauranListHelper, // default page
+  '/': RestaurantListHelper, // default page
+  '/home': RestaurantListHelper,
   '/detail/:id': Detail,
   '/favorite': Favorite,
 };

@@ -1,6 +1,6 @@
 import RestaurantSource from "../data/restaurant-source";
 import { createRestaurantItemTemplate } from "../views/templates/template";
-class RestauranListHelper {
+class RestaurantListHelper {
   static async render() {
     return `
       <div class="headline">
@@ -23,4 +23,4 @@ class RestauranListHelper {
     });
   }
 }
-export default RestauranListHelper;
+export default RestaurantListHelper;
