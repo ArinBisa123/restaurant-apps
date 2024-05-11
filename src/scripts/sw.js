@@ -1,18 +1,52 @@
-self.addEventListener('install', (event) => {
-  console.log('Installing Service Worker ...');
- 
-  // TODO: Caching App Shell Resource
+import { precacheAndRoute } from 'workbox-precaching';
+import { registerRoute } from 'workbox-routing';
+import { StaleWhileRevalidate } from 'workbox-strategies';
+
+// Do precaching
+// eslint-disable-next-line no-undef
+precacheAndRoute(self.__WB_MANIFEST);
+
+// runtime caching
+const restaurantAPI = registerRoute(
+  ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/'),
+  new StaleWhileRevalidate({
+    cacheName: 'restaurant-api',
+  }),
+);
+const restaurantImageAPI = registerRoute(
+  ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/large/'),
+  new StaleWhileRevalidate({
+    cacheName: 'restaurant-image-api',
+  }),
+);
+restaurantAPI()
+restaurantImageAPI()
+
+self.addEventListener('install', () => {
+  console.log('Service Worker: Installed');
+  self.skipWaiting();
 });
- 
-self.addEventListener('activate', (event) => {
-  console.log('Activating Service Worker ...');
- 
-  // TODO: Delete old caches
+
+self.addEventListener('push', () => {
+  console.log('Service Worker: Pushed');
+
+  // const dataJson = event.data.json();
+  // const notification = {
+  //   title: dataJson.title,
+  //   options: {
+  //     body: dataJson.options.body,
+  //     icon: dataJson.options.icon,
+  //     image: dataJson.options.image,
+  //   },
+  // };
+  // event.waitUntil(self.registration.showNotification(notification.title, notification.options));
 });
- 
-self.addEventListener('fetch', (event) => {
-  console.log(event.request);
- 
-  event.respondWith(fetch(event.request));
-  // TODO: Add/get fetch request to/from caches
-});
+// self.addEventListener('notificationclick', (event) => {
+//   const clickedNotification = event.notification;
+//   clickedNotification.close();
+//   const chainPromise = async () => {
+//     console.log('Notification has been clicked');
+//     await self.clients.openWindow('https://www.dicoding.com/');
+//   };
+//   event.waitUntil(chainPromise());
+// });

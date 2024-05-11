@@ -15,7 +15,6 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <p>${restaurant.description}</p>
   </div>
   <div class="restaurant__menu>
-    <h3>Menu</h3>
     <div class="foods_detail">
       <h4 class="menu_title">Foods</h4>
       <ul>
