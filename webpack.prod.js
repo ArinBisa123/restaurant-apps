@@ -23,9 +23,21 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new WorkboxWebpackPlugin.InjectManifest({
-      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+    new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
+      skipWaiting: true,
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://restaurant-api.dicoding.dev/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'restaurant-apps',
+            cacheableResponse: {
+              statuses: [200],
+            },
+          },
+        },
+      ],
     }),
   ],
 });
