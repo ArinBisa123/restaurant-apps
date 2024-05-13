@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 class RestaurantList extends HTMLElement {
   constructor() {
     super();

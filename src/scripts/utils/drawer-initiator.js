@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const DrawerInitiator = {
   init({ button_drawer, drawer, content }) {
     button_drawer.addEventListener('click', (event) => {
