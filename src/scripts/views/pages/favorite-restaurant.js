@@ -1,11 +1,11 @@
-import FavoriteRestaurantSource from "../../data/favorite-restaurant-source";
-import { createRestaurantItemTemplate } from "../templates/template";
+import FavoriteRestaurantSource from '../../data/favorite-restaurant-source';
+import { createRestaurantItemTemplate } from '../templates/template';
 
 const Favorite = {
   async render() {
     return `
     <div class="favorite_container">
-        <h2>Your Favorite Restaurant</h2>
+        <h4>Your Favorite Restaurant</h4>
         <div id="favorite_content" class="favorite_content"></div>
     </div>
     `;

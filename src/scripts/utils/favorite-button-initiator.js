@@ -1,7 +1,7 @@
-import FavoriteRestaurantSource from "../data/favorite-restaurant-source";
-import { createFavoriteButtonTemplate, createFavoritedButtonTemplate } from "../views/templates/template";
+import FavoriteRestaurantSource from '../data/favorite-restaurant-source';
+import { createFavoriteButtonTemplate, createFavoritedButtonTemplate } from '../views/templates/template';
 
-const FavoriteButtonInitiator ={
+const FavoriteButtonInitiator = {
   async init({ favoriteButtonContainer, data }) {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._restaurant = data.restaurant;
@@ -43,5 +43,5 @@ const FavoriteButtonInitiator ={
       this._renderButton();
     });
   },
-}
-export default FavoriteButtonInitiator
+};
+export default FavoriteButtonInitiator;

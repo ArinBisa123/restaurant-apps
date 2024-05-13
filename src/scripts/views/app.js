@@ -2,7 +2,7 @@ import DrawerInitiator from '../utils/drawer-initiator';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
 
-//initiate app shell component
+// initiate app shell component
 
 class App {
   constructor({ button_drawer, drawer, content }) {
@@ -25,7 +25,12 @@ class App {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
     this._content.innerHTML = await page.render();
-    page.afterRender()
+    page.afterRender();
+    const skipLinkElement = document.querySelector('.skip_link');
+    skipLinkElement.addEventListener('click', (event) => {
+      event.preventDefault();
+      document.querySelector('#mainContent').focus();
+    });
   }
 }
 
