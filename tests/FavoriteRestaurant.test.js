@@ -4,7 +4,9 @@ import * as TestFactories from './helpers/testFactories';
 import FavoriteRestaurantSource from '../src/scripts/data/favorite-restaurant-source';
 import 'core-js/stable/structured-clone';
 
-describe('Liking A Restaurant', () => {
+global.structuredClone = (val) => JSON.parse(JSON.stringify(val));
+
+describe('Favoriting A Restaurant', () => {
   const addFavoriteButtonContainer = () => {
     document.body.innerHTML = '<div id="favoriteButtonContainer"></div>';
   };
@@ -32,13 +34,13 @@ describe('Liking A Restaurant', () => {
     await FavoriteRestaurantSource.putRestaurant({ id: 1 });
 
     document.querySelector('#favoriteButton').dispatchEvent(new Event('click'));
-    expect(await FavoriteRestaurantSource.getAllRestaurants()).toEqual([{ id: 1 }]);
+    expect(FavoriteRestaurantSource.getAllRestaurants()).toEqual([{ id: 1 }]);
     FavoriteRestaurantSource.deleteRestaurant(1);
   });
-  xit('should not add a restaurant when it has no id', async () => {
+  it('should not add a restaurant when it has no id', async () => {
     await TestFactories.createFavoriteButtonPresenter({});
 
     document.querySelector('#favoriteButton').dispatchEvent(new Event('click'));
-    expect(await FavoriteRestaurantSource.getAllRestaurants()).toEqual([]);
+    expect(FavoriteRestaurantSource.getAllRestaurants()).toEqual([]);
   });
 });
