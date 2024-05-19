@@ -23,6 +23,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "codeceptjs": "^3.6.2",
     "copy-webpack-plugin": "^11.0.0",
+    "core-js": "^3.37.1",
     "css-loader": "^6.7.1",
     "eslint": "^8.17.0",
     "eslint-config-airbnb-base": "^15.0.0",
