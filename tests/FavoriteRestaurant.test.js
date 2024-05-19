@@ -34,13 +34,13 @@ describe('Favoriting A Restaurant', () => {
     await FavoriteRestaurantSource.putRestaurant({ id: 1 });
 
     document.querySelector('#favoriteButton').dispatchEvent(new Event('click'));
-    expect(FavoriteRestaurantSource.getAllRestaurants()).toEqual([{ id: 1 }]);
+    expect(await FavoriteRestaurantSource.getAllRestaurants()).toEqual([{ id: 1 }]);
     FavoriteRestaurantSource.deleteRestaurant(1);
   });
   it('should not add a restaurant when it has no id', async () => {
     await TestFactories.createFavoriteButtonPresenter({});
 
     document.querySelector('#favoriteButton').dispatchEvent(new Event('click'));
-    expect(FavoriteRestaurantSource.getAllRestaurants()).toEqual([]);
+    expect(await FavoriteRestaurantSource.getAllRestaurants()).toEqual([]);
   });
 });

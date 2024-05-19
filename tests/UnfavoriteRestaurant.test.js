@@ -27,13 +27,13 @@ describe('Unfavoriting A Restaurant', () => {
   it('should be able to remove favorited restaurant from the list', async () => {
     await TestFactories.createFavoriteButtonPresenter({ id: 1 });
     document.querySelector('[aria-label="unfavorite this restaurant"]').dispatchEvent(new Event('click'));
-    expect(FavoriteRestaurantSource.getAllRestaurants()).toEqual([]);
+    expect(await FavoriteRestaurantSource.getAllRestaurants()).toEqual([]);
   });
   it('should not throw error when user click unfavorite widget if the unfavorited movie is not in the list', async () => {
     await TestFactories.createFavoriteButtonPresenter({ id: 1 });
     await FavoriteRestaurantSource.deleteRestaurant(1);
 
     document.querySelector('[aria-label="unfavorite this restaurant"]').dispatchEvent(new Event('click'));
-    expect(FavoriteRestaurantSource.getAllRestaurants()).toEqual([]);
+    expect(await FavoriteRestaurantSource.getAllRestaurants()).toEqual([]);
   });
 });
