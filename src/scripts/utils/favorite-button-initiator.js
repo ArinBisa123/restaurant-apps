@@ -1,10 +1,12 @@
-import FavoriteRestaurantSource from '../data/favorite-restaurant-source';
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 import { createFavoriteButtonTemplate, createFavoritedButtonTemplate } from '../views/templates/template';
 
 const FavoriteButtonInitiator = {
-  async init({ favoriteButtonContainer, data }) {
+  async init({ favoriteButtonContainer, favoriteRestaurant, data }) {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._restaurant = data.restaurant;
+    this._favoriteRestaurant = favoriteRestaurant;
 
     await this._renderButton();
   },
@@ -20,7 +22,7 @@ const FavoriteButtonInitiator = {
   },
 
   async _isRestaurantExist(id) {
-    const restaurant = await FavoriteRestaurantSource.getRestaurant(id);
+    const restaurant = await this._favoriteRestaurant.getRestaurant(id);
     return !!restaurant;
   },
 
@@ -30,7 +32,7 @@ const FavoriteButtonInitiator = {
     const favoriteButton = document.querySelector('#favoriteButton');
     // console.log(favoriteButton);
     favoriteButton.addEventListener('click', async () => {
-      await FavoriteRestaurantSource.putRestaurant(this._restaurant);
+      await this._favoriteRestaurant.putRestaurant(this._restaurant);
       // alert("Success")
       this._renderButton();
     });
@@ -41,7 +43,7 @@ const FavoriteButtonInitiator = {
 
     const favoriteButton = document.querySelector('#favoriteButton');
     favoriteButton.addEventListener('click', async () => {
-      await FavoriteRestaurantSource.deleteRestaurant(this._restaurant.id);
+      await this._favoriteRestaurant.deleteRestaurant(this._restaurant.id);
       this._renderButton();
     });
   },
