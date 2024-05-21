@@ -5,6 +5,8 @@ import './views/pages/restaurant-list.js';
 import './views/pages/detail-restaurant.js';
 import App from './views/app.js';
 import swRegister from './utils/sw-register.js';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const app = new App({
   button_drawer: document.querySelector('#nav__drawer'),

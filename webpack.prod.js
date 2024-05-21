@@ -1,3 +1,4 @@
+/* eslint-disable prefer-regex-literals */
 const { merge } = require('webpack-merge');
 const path = require('path');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
