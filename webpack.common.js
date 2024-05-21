@@ -1,12 +1,24 @@
+/* eslint-disable no-unused-expressions */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
-const ImageminMozjpeg = require('imagemin-mozjpeg');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const { url } = require('inspector');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
+module.exports = async () => {
+  const ImageminMozjpeg = (await import('imagemin-mozjpeg')).default;
+  [
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+      ],
+    }),
+  ];
+};
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -73,14 +85,6 @@ module.exports = {
             ignore: ['**/images/**'],
           },
         },
-      ],
-    }),
-    new ImageminWebpackPlugin({
-      plugins: [
-        ImageminMozjpeg({
-          quality: 50,
-          progressive: true,
-        }),
       ],
     }),
     new BundleAnalyzerPlugin(),
