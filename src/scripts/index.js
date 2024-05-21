@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.css';
+// import '../styles/main.css';
+import '../styles/main.min.css';
 import './views/pages/restaurant-list.js';
 import './views/pages/detail-restaurant.js';
 import App from './views/app.js';
