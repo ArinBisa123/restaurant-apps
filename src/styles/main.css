@@ -92,7 +92,7 @@ body {
   position: relative;
   min-height: 500px;
   width: 100%;
-  /* background-image: url("../images/hero-image_1-large.jpg"); */
+  background-image: url("../images/hero-image_1-small.jpg");
   background-size: cover;
 }
 .hero__inner {
@@ -559,7 +559,7 @@ Responsive
     margin: 0 auto;
   }
 }
-@media screen and (max-width: 1500px) {
+@media screen and (min-width: 1024px) {
   .hero{
     max-width: 1500px;
     background-image: url("/images/hero-image_1-large.jpg");
